@@ -1,7 +1,6 @@
 package it.itispaleocapa.brescianin;
 
-
-public abstract class Personale {
+public class Personale {
     private String codice;
     private String cognome;
     private String nome;
@@ -13,16 +12,37 @@ public abstract class Personale {
         this.nome = nome;
         this.annoAssunzione = annoAssunzione;
     }
+
     public String getCodice() {
         return codice;
     }
+
+    public void setCodice(String codice) {
+        this.codice = codice;
+    }
+
     public String getCognome() {
         return cognome;
     }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+
     public String getNome() {
         return nome;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public int getAnnoAssunzione() {
         return annoAssunzione;
     }
+
+    public void setAnnoAssunzione(int annoAssunzione) {
+        this.annoAssunzione = annoAssunzione;
+    }
+    
 }
