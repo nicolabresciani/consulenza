@@ -1,6 +1,6 @@
 package it.itispaleocapa.brescianin;
 
-public class Personale {
+class Personale {
     private String codice;
     private String cognome;
     private String nome;
@@ -44,5 +44,4 @@ public class Personale {
     public void setAnnoAssunzione(int annoAssunzione) {
         this.annoAssunzione = annoAssunzione;
     }
-    
 }

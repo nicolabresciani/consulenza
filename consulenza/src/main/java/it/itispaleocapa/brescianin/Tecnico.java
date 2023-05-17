@@ -1,6 +1,6 @@
 package it.itispaleocapa.brescianin;
 
-public class Tecnico extends Personale {
+class Tecnico extends Personale {
     private String areaDiCompetenza;
     private boolean interno;
 
@@ -25,6 +25,9 @@ public class Tecnico extends Personale {
     public void setInterno(boolean interno) {
         this.interno = interno;
     }
-
+    public String toString() {
+        return "Tecnico: " + "Codice: " + getCodice() + ", Cognome: " + getCognome() + ", Nome: " + getNome() + ", Anno Assunzione: " + getAnnoAssunzione() +
+                ", Area di Competenza: " + areaDiCompetenza + ", Interno: " + interno;
+    }
 }
 
