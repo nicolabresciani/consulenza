@@ -1,33 +1,39 @@
 package it.itispaleocapa.brescianin;
 
-class Tecnico extends Personale {
-    private String areaDiCompetenza;
+public class Tecnico extends Personale {
     private boolean interno;
+    private String areaCompetenza;
 
-    public Tecnico(String codice, String cognome, String nome, int annoAssunzione, String areaDiCompetenza, boolean interno) {
+    public Tecnico(String codice, String cognome, String nome, int annoAssunzione, boolean interno, String areaCompetenza) {
         super(codice, cognome, nome, annoAssunzione);
-        this.areaDiCompetenza = areaDiCompetenza;
         this.interno = interno;
+        this.areaCompetenza = areaCompetenza;
     }
 
-    public String getAreaDiCompetenza() {
-        return areaDiCompetenza;
+    public double getCostoOrario() {
+        double costoBase = 0.0;
+    
+        if (areaCompetenza.equals("informatica-telecomunicazioni")) {
+            costoBase = 40.0;
+        } else {
+            costoBase = 50.0;
+        }
+    
+        double costoOrario = costoBase;
+    
+        if (interno) {
+            int anniTrascorsi = 2023 - getAnnoAssunzione();
+            costoOrario += anniTrascorsi;
+        }
+    
+        return costoOrario;
     }
 
-    public void setAreaDiCompetenza(String areaDiCompetenza) {
-        this.areaDiCompetenza = areaDiCompetenza;
-    }
-
-    public boolean isInterno() {
-        return interno;
-    }
-
-    public void setInterno(boolean interno) {
-        this.interno = interno;
+    public double getOreAttivita() {
+        return 40.0; 
     }
     public String toString() {
-        return "Tecnico: " + "Codice: " + getCodice() + ", Cognome: " + getCognome() + ", Nome: " + getNome() + ", Anno Assunzione: " + getAnnoAssunzione() +
-                ", Area di Competenza: " + areaDiCompetenza + ", Interno: " + interno;
-    }
+        return "Tecnico [areaCompetenza=" + areaCompetenza + ", interno=" + interno + ", " + super.toString() + "]";
+    }   
 }
 

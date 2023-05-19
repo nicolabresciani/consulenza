@@ -1,6 +1,6 @@
 package it.itispaleocapa.brescianin;
 
-class Funzionario extends Personale {
+public class Funzionario extends Personale {
     private int anniEsperienza;
 
     public Funzionario(String codice, String cognome, String nome, int annoAssunzione, int anniEsperienza) {
@@ -8,15 +8,19 @@ class Funzionario extends Personale {
         this.anniEsperienza = anniEsperienza;
     }
 
-    public int getAnniEsperienza() {
-        return anniEsperienza;
+    public double getCostoOrario() {
+        double costoOrario = 70.0;
+        
+        if (anniEsperienza >= 10) {
+            costoOrario = 80.0;
+        }
+        
+        return costoOrario;
     }
-
-    public void setAnniEsperienza(int anniEsperienza) {
-        this.anniEsperienza = anniEsperienza;
+    public double getOreAttivita() {
+        return 35.0; // Esempio: assume che ogni tecnico lavori sempre 40 ore di attività
     }
     public String toString() {
-        return "Funzionario: " + "Codice: " + getCodice() + ", Cognome: " + getCognome() + ", Nome: " + getNome() +
-                ", Anno Assunzione: " + getAnnoAssunzione() + ", Anni Esperienza: " + anniEsperienza;
-    }  
+        return "Funzionario [anniEsperienza=" + anniEsperienza + ", " + super.toString() + "]";
+    }
 }

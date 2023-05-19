@@ -1,50 +1,45 @@
 package it.itispaleocapa.brescianin;
 
 import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.Map;
 
-class Progetto {
-    private LinkedList<Personale> personale;
-    private HashMap<Ruolo, Double> tariffe;
+public class Progetto {
+    private Map<String, Personale> personale;
 
     public Progetto() {
-        personale = new LinkedList<>();
-        tariffe = new HashMap<>();
-        tariffe.put(Ruolo.TECNICO_INFORMATICA, 40.0);
-        tariffe.put(Ruolo.TECNICO_ELETTRONICA, 50.0);
-        tariffe.put(Ruolo.FUNZIONARIO_JUNIOR, 70.0);
-        tariffe.put(Ruolo.FUNZIONARIO_SENIOR, 80.0);
-        tariffe.put(Ruolo.DIRIGENTE, 100.0);
+        personale = new HashMap<>();
     }
 
-    public void aggiungiPersonale(Personale membro) throws Exception {
-        if (membro == null) {
-            throw new Exception();
+    public void aggiungiPersonale(Personale membro) {
+        personale.put(membro.getCodice(), membro);
+    }
+
+    public double getCostoComplessivo() {
+        double costoComplessivo = 0.0;
+
+        for (Personale persona : personale.values()) {
+            double oreAttivita = ((Tecnico) persona).getOreAttivita();
+            double costoOrario = ((Tecnico) persona).getCostoOrario();
+            costoComplessivo += oreAttivita * costoOrario;
         }
-        personale.add(membro);
+
+        return costoComplessivo;
     }
 
-    public double getTariffa(Ruolo ruolo) {
-        return tariffe.get(ruolo);
-    }
+    private double calcolaCostoOrario(Personale membro) {
+        double costoOrario = 0.0;
 
-    public void setTariffa(Ruolo ruolo, double tariffa) {
-        tariffe.put(ruolo, tariffa);
-    }
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Personale nel progetto:\n");
-        for (Personale membro : personale) {
-            sb.append(membro.toString()).append("\n");
+        if (membro instanceof Tecnico) {
+            Tecnico tecnico = (Tecnico) membro;
+            costoOrario = tecnico.getCostoOrario();
+        } else if (membro instanceof Funzionario) {
+            Funzionario funzionario = (Funzionario) membro;
+            costoOrario = funzionario.getCostoOrario();
+        } else if (membro instanceof Dirigente) {
+            Dirigente dirigente = (Dirigente) membro;
+            costoOrario = dirigente.getCostoOrario();
         }
-        return sb.toString();
-    }
-}
 
-enum Ruolo {
-    TECNICO_INFORMATICA,
-    TECNICO_ELETTRONICA,
-    FUNZIONARIO_JUNIOR,
-    FUNZIONARIO_SENIOR,
-    DIRIGENTE
+        return costoOrario;
+    }
 }
