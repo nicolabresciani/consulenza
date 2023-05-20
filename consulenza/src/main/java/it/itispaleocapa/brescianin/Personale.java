@@ -1,6 +1,6 @@
 package it.itispaleocapa.brescianin;
 
-public class Personale {
+public abstract class Personale {
     private String codice;
     private String cognome;
     private String nome;
@@ -29,6 +29,10 @@ public class Personale {
         return annoAssunzione;
     }
 
+    public abstract double getOreAttivita();
+
+    public abstract double getCostoOrario();
+    
     public String toString() {
         return "Personale [codice=" + codice + ", cognome=" + cognome + ", nome=" + nome + ", annoAssunzione=" + annoAssunzione + "]";
     }

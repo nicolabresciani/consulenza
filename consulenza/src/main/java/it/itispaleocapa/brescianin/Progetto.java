@@ -16,30 +16,14 @@ public class Progetto {
 
     public double getCostoComplessivo() {
         double costoComplessivo = 0.0;
-
+    
         for (Personale persona : personale.values()) {
-            double oreAttivita = ((Tecnico) persona).getOreAttivita();
-            double costoOrario = ((Tecnico) persona).getCostoOrario();
+            double oreAttivita = persona.getOreAttivita();
+            double costoOrario = persona.getCostoOrario();
             costoComplessivo += oreAttivita * costoOrario;
         }
-
+    
         return costoComplessivo;
-    }
-
-    private double calcolaCostoOrario(Personale membro) {
-        double costoOrario = 0.0;
-
-        if (membro instanceof Tecnico) {
-            Tecnico tecnico = (Tecnico) membro;
-            costoOrario = tecnico.getCostoOrario();
-        } else if (membro instanceof Funzionario) {
-            Funzionario funzionario = (Funzionario) membro;
-            costoOrario = funzionario.getCostoOrario();
-        } else if (membro instanceof Dirigente) {
-            Dirigente dirigente = (Dirigente) membro;
-            costoOrario = dirigente.getCostoOrario();
-        }
-
-        return costoOrario;
-    }
+    }    
+    
 }

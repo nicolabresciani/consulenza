@@ -11,5 +11,8 @@ public class Dirigente extends Personale {
     public String toString() {
         return "Dirigente [" + super.toString() + "]";
     }
+    public double getOreAttivita(){
+        return 0.0;
+    }
 }
 

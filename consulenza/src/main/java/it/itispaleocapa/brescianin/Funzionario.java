@@ -18,7 +18,7 @@ public class Funzionario extends Personale {
         return costoOrario;
     }
     public double getOreAttivita() {
-        return 35.0; // Esempio: assume che ogni tecnico lavori sempre 40 ore di attività
+        return 35.0; 
     }
     public String toString() {
         return "Funzionario [anniEsperienza=" + anniEsperienza + ", " + super.toString() + "]";
