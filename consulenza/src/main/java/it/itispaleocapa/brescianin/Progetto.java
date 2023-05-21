@@ -1,10 +1,9 @@
 package it.itispaleocapa.brescianin;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class Progetto {
-    private Map<String, Personale> personale;
+    private HashMap<String, Personale> personale;
 
     public Progetto() {
         personale = new HashMap<>();
