@@ -10,8 +10,8 @@ class prova {
 
     @Test
     public void testGetCostoComplessivo() {
-        Tecnico tecnico = new Tecnico("T001", "Rossi", "Mario", 2015, true, "informatica-telecomunicazioni");
-        Funzionario funzionario = new Funzionario("F001", "Bianchi", "Laura", 2010, 8);
+        Tecnico tecnico = new Tecnico("T100", "LUCCA", "CIAO", 2005, true, "informatica-telecomunicazioni");
+        Funzionario funzionario = new Funzionario("F108", "TASCA", "aura", 2019, 0);
         double oreAttivitaTecnico = 10.0;
         double oreAttivitaFunzionario = 20.0;
 
