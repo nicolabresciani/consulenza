@@ -23,6 +23,11 @@ public class Progetto {
         }
     
         return costoComplessivo;
+    }
+    public Personale getPersonale(String codice) {
+        return personale.get(codice);
     }    
-    
+    public Personale contienePersonale(Personale membro) {
+        return personale.get(membro.getCodice());
+    }
 }
