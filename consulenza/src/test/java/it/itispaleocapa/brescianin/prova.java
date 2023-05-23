@@ -10,17 +10,11 @@ class prova {
 
     @Test
     public void testGetCostoComplessivo() {
-        Tecnico tecnico = new Tecnico("T100", "LUCCA", "CIAO", 2005, true, "informatica-telecomunicazioni");
-        Funzionario funzionario = new Funzionario("F108", "TASCA", "aura", 2019, 0);
-        double oreAttivitaTecnico = 10.0;
-        double oreAttivitaFunzionario = 20.0;
-
-        progetto.aggiungiPersonale(tecnico);
-        progetto.aggiungiPersonale(funzionario);
-
-        double costoComplessivoTotale = (oreAttivitaTecnico * tecnico.getCostoOrario()) + (oreAttivitaFunzionario * funzionario.getCostoOrario());
-        assertEquals(costoComplessivoTotale, progetto.getCostoComplessivo());
+        Progetto progetto = new Progetto();
+        progetto.aggiungiPersonale(new Tecnico("T100", "LUCCA", "CIAO", 2005, true, "informatica-telecomunicazioni"));
+        progetto.aggiungiPersonale(new Funzionario("F108", "TASCA", "aura", 2019, 0));
+        assertEquals(progetto.getCostoComplessivo(), 4770);
     }
-    
+
     
 }

@@ -11,7 +11,7 @@ public class Funzionario extends Personale {
     public double getCostoOrario() {
         double costoOrario = 70.0;
         
-        if (anniEsperienza >= 10) {
+        if (anniEsperienza > 10) {
             costoOrario = 80.0;
         }
         
@@ -22,5 +22,11 @@ public class Funzionario extends Personale {
     }
     public String toString() {
         return "Funzionario [anniEsperienza=" + anniEsperienza + ", " + super.toString() + "]";
+    }
+    public int getAnniEsperienza() {
+        return anniEsperienza;
+    }
+    public void setAnniEsperienza(int anniEsperienza) {
+        this.anniEsperienza = anniEsperienza;
     }
 }

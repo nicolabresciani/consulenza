@@ -36,4 +36,6 @@ public abstract class Personale {
     public String toString() {
         return "Personale [codice=" + codice + ", cognome=" + cognome + ", nome=" + nome + ", annoAssunzione=" + annoAssunzione + "]";
     }
+
+
 }
