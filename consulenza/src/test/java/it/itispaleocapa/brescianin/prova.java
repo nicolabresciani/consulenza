@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;;
 
 
 class prova {
-    private Progetto progetto = new Progetto();
-
     @Test
     public void testGetCostoComplessivo() {
         Progetto progetto = new Progetto();
